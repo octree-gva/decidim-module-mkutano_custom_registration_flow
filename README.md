@@ -26,6 +26,8 @@ In Mkutano's Decidim, we use [decidim donation module](https://github.com/decidi
 2. If the user is connected, but not verified => redirect to the `/pages/welcome`
 3. If the user is connected and verified (by any means) => show the assemblies.
 
+These restrictions applies at the controller level, with a middleware, and in the graphql queries.
+
 ## Usage
 
 You can create public assemblies, they will all be under the paywall. If you want assemblies with others kind of validations/paywalls, you can creates private assemblies, and manage them manually through the insertion of [_Private Users_](https://docs.decidim.org/en/admin/spaces/assemblies/private_participants).
