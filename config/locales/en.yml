@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      mkutano_custom_registration_flow:
+        name: MkutanoCustomRegistrationFlow
