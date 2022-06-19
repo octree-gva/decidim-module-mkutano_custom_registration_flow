@@ -16,8 +16,7 @@ module Decidim
             decidim_organizations: { id: current_organization.id },
             user: current_user).where.not(granted_at: nil).exists?
           return redirect_400(request) unless granted || current_user.admin?
-          @status, @headers, @response = @app.call(env)
-          [@status, @headers, @response]
+          @app.call(env)
         end
 
         private
@@ -25,7 +24,7 @@ module Decidim
             host = request.host_with_port
             protocol = request.protocol
             redirect_to = "#{protocol}#{host}/pages/welcome"
-            [301, { "Location" => redirect_to }, self]
+            [301, { "Location" => redirect_to }, ["You are beeing redirected"]]
           end
       end
     end

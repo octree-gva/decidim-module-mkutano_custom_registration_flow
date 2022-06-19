@@ -12,6 +12,7 @@ module Decidim
       end
       Decidim::Assemblies::AssemblyType.define_singleton_method(:authorized?, policy)
       Decidim::Assemblies::AssemblyMemberType.define_singleton_method(:authorized?, policy)
+      Decidim::Assemblies::AssembliesTypeTypes.define_singleton_method(:authorized?, policy)
     end
   end
 end
