@@ -8,7 +8,9 @@
     <a href="https://meta.decidim.org">Participatory Governance (meta decidim)</a><br/><br/>
     <a href="https://matrix.to/#/+decidim:matrix.org">Decidim Community (Matrix+Element.io)</a> |
 </h4>
-<p align="center"><img src="https://github.com/octree-gva/decidim-module-mkutano_custom_registration_flow/blob/main/mkutano-logo.png?raw=true" alt="MKUTANO is a participatory platform where black canadians can effectively & democratically organize at scale" /></p>
+<p align="center">
+<a href="https://mkutano.community"><img src="https://github.com/octree-gva/decidim-module-mkutano_custom_registration_flow/blob/main/mkutano-logo.png?raw=true" alt="MKUTANO is a participatory platform where black canadians can effectively & democratically organize at scale" /></a>
+</p>
 
 
 # Decidim::MkutanoCustomRegistrationFlow
@@ -26,7 +28,7 @@ In Mkutano's Decidim, we use [decidim donation module](https://github.com/decidi
 2. If the user is connected, but not verified => redirect to the `/pages/welcome`
 3. If the user is connected and verified (by any means) => show the assemblies.
 
-These restrictions applies at the controller level, with a middleware, and in the graphql queries.
+These restrictions apply at the controller level, with a middleware, and in the graphql queries.
 
 ## Usage
 
