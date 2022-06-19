@@ -8,7 +8,7 @@
     <a href="https://meta.decidim.org">Participatory Governance (meta decidim)</a><br/><br/>
     <a href="https://matrix.to/#/+decidim:matrix.org">Decidim Community (Matrix+Element.io)</a> |
 </h4>
-<img src="https://github.com/octree-gva/decidim-module-mkutano_custom_registration_flow/blob/main/mkutano-logo.png?raw=true" alt="MKUTANO is a participatory platform where black canadians can effectively & democratically organize at scale" />
+<p align="center"><img src="https://github.com/octree-gva/decidim-module-mkutano_custom_registration_flow/blob/main/mkutano-logo.png?raw=true" alt="MKUTANO is a participatory platform where black canadians can effectively & democratically organize at scale" /></p>
 
 
 # Decidim::MkutanoCustomRegistrationFlow
