@@ -8,7 +8,7 @@ module Decidim
 
         def call(env)
           request = ActionDispatch::Request.new(env)
-          return @app.call(env) unless request.path.starts_with? "/assemblies"
+          return @app.call(env) unless blocked_path?(request.path)
           current_user = env["warden"].user(:user)
           return redirect_400(request) unless current_user.present?
           current_organization = env["decidim.current_organization"]
@@ -25,6 +25,10 @@ module Decidim
             protocol = request.protocol
             redirect_to = "#{protocol}#{host}/pages/welcome"
             [301, { "Location" => redirect_to }, ["You are beeing redirected"]]
+          end
+
+          def blocked_path?(path)
+            ["/assemblies", "/meetings", "/processes"].any? {|blocked_path| path.start_with?(blocked_path) }
           end
       end
     end
