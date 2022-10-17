@@ -1,7 +1,7 @@
 module Decidim
   module MkutanoCustomRegistrationFlow
     module Middleware
-      class VerifiedOnly
+      class RegisteredOnly
         def initialize(app)
           @app = app
         end
@@ -11,11 +11,6 @@ module Decidim
           return @app.call(env) unless blocked_path?(request.path)
           current_user = env["warden"].user(:user)
           return redirect_400(request) unless current_user.present?
-          current_organization = env["decidim.current_organization"]
-          granted = Decidim::Authorization.left_outer_joins(:organization).where(
-            decidim_organizations: { id: current_organization.id },
-            user: current_user).where.not(granted_at: nil).exists?
-          return redirect_400(request) unless granted || current_user.admin?
           @app.call(env)
         end
 
@@ -23,7 +18,8 @@ module Decidim
           def redirect_400(request)
             host = request.host_with_port
             protocol = request.protocol
-            redirect_to = "#{protocol}#{host}/pages/welcome"
+            redirect_to = "#{protocol}#{host}/users/sign_in"
+            flash[:notice] = "You need to sign in to access this content"
             [301, { "Location" => redirect_to }, ["You are beeing redirected"]]
           end
 

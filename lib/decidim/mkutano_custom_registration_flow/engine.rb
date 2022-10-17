@@ -19,7 +19,10 @@ module Decidim
         app.config.assets.precompile += %w[decidim_mkutano_custom_registration_flow_manifest.js decidim_mkutano_custom_registration_flow_manifest.css]
       end 
       initializer "decidim_mkutano_custom_registration_flow.middleware" do |app|
-        app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::VerifiedOnly
+        # Choose one of the flow: 
+        
+        # app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::VerifiedOnly
+        app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::RegisteredOnly
 
       end
     end
