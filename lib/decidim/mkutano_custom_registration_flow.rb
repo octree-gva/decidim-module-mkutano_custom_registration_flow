@@ -4,6 +4,7 @@ require "decidim/mkutano_custom_registration_flow/admin"
 require "decidim/mkutano_custom_registration_flow/engine"
 require "decidim/mkutano_custom_registration_flow/admin_engine"
 require "decidim/mkutano_custom_registration_flow/middleware/verified_only"
+require "decidim/mkutano_custom_registration_flow/middleware/registered_only"
 require "decidim/mkutano_custom_registration_flow/api/api_paywall"
 
 
