@@ -19,7 +19,6 @@ module Decidim
             host = request.host_with_port
             protocol = request.protocol
             redirect_to = "#{protocol}#{host}/users/sign_in"
-            flash[:notice] = "You need to sign in to access this content"
             [301, { "Location" => redirect_to }, ["You are beeing redirected"]]
           end
 
