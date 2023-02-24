@@ -18,7 +18,7 @@ module Decidim
           def redirect_400(request)
             host = request.host_with_port
             protocol = request.protocol
-            redirect_to = "#{protocol}#{host}/users/sign_in"
+            redirect_to = "#{protocol}#{host}/users/sign_up"
             [301, { "Location" => redirect_to }, ["You are beeing redirected"]]
           end
 
