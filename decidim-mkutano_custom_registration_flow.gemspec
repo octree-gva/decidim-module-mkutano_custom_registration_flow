@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE.md", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::MkutanoCustomRegistrationFlow.version
+  s.add_dependency "decidim-core", Decidim::MkutanoCustomRegistrationFlow.decidim_version
 end

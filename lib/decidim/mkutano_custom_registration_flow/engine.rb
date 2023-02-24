@@ -11,19 +11,20 @@ module Decidim
 
       routes do
         # Add engine routes here
-        # resources :mkutano_custom_registration_flow
-        # root to: "mkutano_custom_registration_flow#index"
+        if ENV.fetch("REGISTRATION_FLOW", "registeredOnly") == "verifiedOnly"
+          resources :mkutano_custom_registration_flow
+          root to: "mkutano_custom_registration_flow#index"
+        end
       end
 
-      initializer "decidim_mkutano_custom_registration_flow.assets" do |app|
-        app.config.assets.precompile += %w[decidim_mkutano_custom_registration_flow_manifest.js decidim_mkutano_custom_registration_flow_manifest.css]
-      end 
       initializer "decidim_mkutano_custom_registration_flow.middleware" do |app|
         # Choose one of the flow: 
-        
-        # app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::VerifiedOnly
-        app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::RegisteredOnly
-
+        current_flow = ENV.fetch("REGISTRATION_FLOW", "registeredOnly")
+        if current_flow == "verifiedOnly"
+          app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::VerifiedOnly
+        else
+          app.config.middleware.insert_after Warden::Manager, Decidim::MkutanoCustomRegistrationFlow::Middleware::RegisteredOnly
+        end
       end
     end
   end
