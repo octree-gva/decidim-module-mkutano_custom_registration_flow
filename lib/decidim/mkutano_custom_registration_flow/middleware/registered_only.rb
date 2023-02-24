@@ -23,7 +23,7 @@ module Decidim
           end
 
           def blocked_path?(path)
-            ["/assemblies","/processes", "/consultations", "/conferences", "/meetings"].any? {|blocked_path| path.start_with?(blocked_path) }
+            ["/assemblies","/processes", "/consultations", "/conferences", "/meetings", "/initiatives"].any? {|blocked_path| path.start_with?(blocked_path) }
           end
       end
     end
